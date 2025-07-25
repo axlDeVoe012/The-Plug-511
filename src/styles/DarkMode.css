@@ -1,0 +1,34 @@
+/* src/styles/darkMode.css */
+
+/* Dark mode base styles */
+body.dark-mode {
+  background-color: #121212 !important;
+  color: #eee !important;
+}
+
+/* Navbar overrides */
+body.dark-mode .navbar {
+  background-color: #1e1e1e !important;
+}
+
+body.dark-mode .navbar .nav-link {
+  color: #aaa !important;
+}
+
+body.dark-mode .navbar .nav-link:hover,
+body.dark-mode .navbar .nav-link.active {
+  color: #00ffaa !important;
+}
+
+/* Dark mode button */
+body.dark-mode .btn-outline-light {
+  color: #00ffaa !important;
+  border-color: #00ffaa !important;
+}
+
+body.dark-mode .btn-outline-light:hover,
+body.dark-mode .btn-outline-light:focus {
+  background-color: #00ffaa !important;
+  color: #121212 !important;
+  border-color: #00ffaa !important;
+}

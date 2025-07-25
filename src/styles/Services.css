@@ -1,0 +1,214 @@
+/* Services.css — Dark Green Corporate Style */
+
+.services-section {
+  background-color: #022c22;
+  padding: 4rem 1rem;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  color: #f0fef4;
+}
+
+.services-section h3 {
+  font-size: 2.25rem;
+  color: #a7f3d0;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-align: center;
+  text-align: -webkit-center;
+}
+
+.services-section p.fw-bold {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #34d399;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-align: -webkit-center;
+}
+
+/* Service Card Layout */
+.service-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background: #0f2f25;
+  border: 1px solid #14532d;
+  padding: 3rem; /* increased padding */
+  border-radius: 1rem;
+  margin-bottom: 2.5rem; /* slightly bigger gap */
+  box-shadow: 0 4px 16px rgba(0, 80, 40, 0.1);
+  transition: box-shadow 0.3s ease;
+  animation: fadeInSlide 0.8s ease-out both;
+  --slide-count: 3;
+  gap: 1.5rem; /* a bit more gap */
+  max-width: 900px; /* limit card max width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service-card:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+.service-card:nth-child(even) {
+  animation-delay: 0.4s;
+}
+
+.service-card:hover {
+  box-shadow: 0 6px 24px rgba(0, 128, 0, 0.2);
+}
+
+.service-card.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Image Section */
+.service-carousel {
+  flex: 1 1 360px; /* increased base size */
+  max-width: 550px; /* bigger max width */
+  overflow: hidden;
+  border-radius: 0.75rem;
+  margin: auto;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  background: #133925;
+  height: 280px; /* taller height */
+}
+
+.carousel {
+  display: flex;
+  width: calc(var(--slide-count) * 100%);
+  animation: slideImages calc(var(--slide-count) * 4s) infinite ease-in-out;
+}
+
+.carousel img {
+  width: calc(100% / var(--slide-count));
+  height: 280px; /* match container height */
+  flex-shrink: 0;
+  object-fit: cover; /* fill container nicely */
+  border-radius: 0.75rem;
+  transition: transform 0.4s ease, filter 0.3s ease;
+  user-select: none;
+  -webkit-user-select: none; /* Safari 3+ */
+  filter: drop-shadow(0 4px 4px rgba(0,0,0,0.25));
+}
+
+.carousel img:hover {
+  filter: drop-shadow(0 8px 8px rgba(0, 255, 0, 0.6));
+  transform: scale(1.05);
+}
+
+/* Text Section */
+.service-text {
+  flex: 1 1 320px; /* slightly bigger */
+  padding: 1rem;
+}
+
+.service-text h5 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #bbf7d0;
+}
+
+.service-text p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #d1fae5;
+}
+
+/* Carousel Slide Animation for 3 images */
+@keyframes slideImages {
+  0%, 25%   { transform: translateX(0%); }
+  30%, 55%  { transform: translateX(-33.3333%); }
+  60%, 85%  { transform: translateX(-66.6666%); }
+  90%, 100% { transform: translateX(0%); }
+}
+
+/* Entry Animation */
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Coming Soon Card */
+.coming-soon-card {
+  border-left: 4px solid #f87171;
+  background-color: #1c2b25;
+}
+
+.coming-soon-tag {
+  font-size: 0.85rem;
+  background: #f87171;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  margin-left: 0.6rem;
+  font-weight: 600;
+  animation: pulse 1.5s infinite ease-in-out;
+  display: inline-block;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Responsive Enhancements */
+@media (max-width: 992px) {
+  .service-card,
+  .service-card.reverse {
+    flex-direction: column;
+    text-align: center;
+    text-align: -webkit-center;
+  }
+
+  .service-text {
+    padding: 0.5rem;
+  }
+
+  .service-carousel {
+    max-width: 100%;
+    height: 220px;
+  }
+
+  .carousel img {
+    height: 220px;
+  }
+
+  .services-section h3 {
+    font-size: 2rem;
+  }
+
+  .service-text h5 {
+    font-size: 1.25rem;
+  }
+
+  .service-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .services-section {
+    padding: 2rem 1rem;
+  }
+
+  .service-card {
+    padding: 1.75rem;
+  }
+
+  .service-text h5 {
+    font-size: 1.1rem;
+  }
+
+  .services-section h3 {
+    font-size: 1.5rem;
+  }
+}
