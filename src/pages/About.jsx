@@ -4,6 +4,7 @@ import '../styles/About.css';
 import '../index.css';
 
 const About = () => (
+  
   <div className="about-container py-4">
     <div className="text-center mb-4">
       <img src={logo} alt="Logo" className="animated-leaf" />

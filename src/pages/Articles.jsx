@@ -1,4 +1,5 @@
 import '../styles/Articles.css';
+import '../index.css';
 
 const Articles = () => (
   <div className="articles-container">
@@ -18,9 +19,9 @@ const Articles = () => (
           </p>
         </div>
         <div className="article-card">
-          <h3> Weekly  Deal: If You buy 3gram of the same strain, you get a Discount</h3>
+          <h3>This Week’s Deal: 20% Off All Edibles</h3>
           <p>
-            Enjoy delicious cannabis  at a discount.
+            Enjoy delicious cannabis edibles at a discount—only available this week.
           </p>
         </div>
         <div className="article-card">
