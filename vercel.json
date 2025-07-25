@@ -1,7 +1,5 @@
 {
-  "builds": [
-    { "src": "dist/**", "use": "@vercel/static" }
-  ],
+  "outputDirectory": "dist",
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
   ],
