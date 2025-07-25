@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import '../styles/Contact.css';
 import leaf from '../assets/logo1.png';
 import '../index.css';
