@@ -1,6 +1,8 @@
 
 import '../styles/Home.css';
 import landingImage from '../assets/landing.svg';
+import '../index.css';
+
 
 const Home = () => (
   <div
