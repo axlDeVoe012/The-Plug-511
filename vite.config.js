@@ -18,7 +18,23 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      external: ['react/jsx-runtime']
+      external: ['react/jsx-runtime'],
+      // Add CSS handling
+      output: {
+        assetFileNames: 'assets/[name].[ext]'
+      }
     }
-  }
+  },
+  // Add CSS configuration
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "bootstrap/scss/bootstrap";`
+      }
+    },
+    modules: false,
+    postcss: null
+  },
+  // Ensure static assets are handled
+  assetsInclude: ['**/*.css']
 });
