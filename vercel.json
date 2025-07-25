@@ -1,7 +1,7 @@
 {
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    { "source": "/(.*)", "destination": "/Home.jsx" }
   ],
   "headers": [
     {
@@ -15,3 +15,4 @@
     }
   ]
 }
+
