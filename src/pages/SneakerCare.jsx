@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import '../styles/SneakerCare.css';
 import '../index.css';
-import sneaker1 from '/assets/products/sneaker1.png';
-import sneaker2 from '/assets/products/sneaker2.png';
-import sneakerImg from '../../assets/products/sneaker3.png';
+import sneaker1 from '../assets/products/sneaker1.png';
+import sneaker2 from '../assets/products/sneaker2.png';
+import sneaker3 from '../assets/products/sneaker3.png';
 
 const images = [
   {
