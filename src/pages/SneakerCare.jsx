@@ -3,7 +3,7 @@ import '../styles/SneakerCare.css';
 import '../index.css';
 import sneaker1 from '../assets/products/sneaker1.png';
 import sneaker2 from '../assets/products/sneaker2.png';
-import sneaker3 from '../assets/products/sneaker3.png';
+import sneaker3 from '../assets/products/Sneaker3.png';
 
 const images = [
   {
