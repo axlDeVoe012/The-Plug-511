@@ -11,6 +11,7 @@ import Contact from './pages/Contact';
 import Services from './pages/Services';
 import Articles from './pages/Articles';
 import Pricing from './pages/Pricing';
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
