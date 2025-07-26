@@ -17,7 +17,7 @@ const Home = () => (
       <p className="lead">
         Your one-stop shop for premium cannabis products, sneaker care, and more.
       </p>
-      <a href="/products" className="btn btn-success btn-lg mt-3">
+      <a href="/Products.jsx" className="btn btn-success btn-lg mt-3">
         Explore Our Products
       </a>
     </div>
