@@ -21,7 +21,7 @@ const products = [
     price: "R350.00",
     description: "Medium-sized Egyptian hookah pipe built for smooth draws.",
     mainImage: "/sales/medium.png",
-    images: ["/sales/medium1.png", "/sales/medium2.png", "/sales/midium3.png"]
+    images: ["/sales/medium.png","/sales/medium1.png", "/sales/medium2.png", "/sales/midium3.png"]
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const products = [
     price: "R450.00",
     description: "Large Egyptian hookah pipe ideal for group sessions.",
     mainImage: "/sales/Big.png",
-    images: ["/sales/Big.webp", "/sales/big2.webp"]
+    images: ["/sales/Big.png","/sales/Big.webp", "/sales/big2.webp"]
   },
   {
     id: 5,
