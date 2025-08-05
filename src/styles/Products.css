@@ -39,8 +39,8 @@
 }
 
 .floating-price {
-  position: absolute;
-  top: 1rem;
+  position: relative;
+  bottom: 1rem;
   right: 1rem;
   
   
