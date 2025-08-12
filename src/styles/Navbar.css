@@ -1,0 +1,99 @@
+/* Mobile Menu Toggle Button (FaBars) */
+.navbar-toggler {
+    border: none;
+    background: #ebebeb;
+    border-radius: 50%;
+    padding: 8px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-toggler:hover {
+    background: #d6d6d6;
+    transform: scale(1.05);
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(216, 134, 11, 0.3); /* matches your gold gradient tone */
+}
+
+/* Dark Mode Toggle Switch */
+.dark_mode_label {
+    width: 65px;
+    height: 30px;
+    position: relative;
+    display: block;
+    background: #ebebeb;
+    border-radius: 200px;
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+        inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.dark_mode_label:hover {
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.5),
+        inset 0px -5px 15px rgba(255, 255, 255, 0.5);
+}
+
+.dark_mode_label:after {
+    content: "";
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    border-radius: 180px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease, background 0.3s ease;
+}
+
+.dark_mode_input:checked + .dark_mode_label {
+    background: #242424;
+}
+
+.dark_mode_input:checked + .dark_mode_label:after {
+    left: 62px;
+    transform: translateX(-100%);
+    background: linear-gradient(180deg, #777, #3a3a3a);
+}
+
+/* Dark Mode Icons */
+.dark_mode_label img.sun,
+.dark_mode_label img.moon {
+    position: absolute;
+    width: 20px;
+    top: 5px;
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+
+.dark_mode_label img.sun {
+    left: 5px;
+    filter: brightness(100%);
+}
+
+.dark_mode_label img.moon {
+    left: 40px;
+    filter: brightness(60%);
+}
+
+.dark_mode_input:checked + .dark_mode_label img.sun {
+    filter: brightness(60%);
+}
+
+.dark_mode_input:checked + .dark_mode_label img.moon {
+    filter: brightness(100%);
+}
+
+.dark_mode_input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+

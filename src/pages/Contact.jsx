@@ -36,7 +36,7 @@ const Contact = () => {
       <div className="text-center mb-4">
         <img src={leaf} alt="Cannabis Leaf" className="leaf-icon mb-3" />
         <h2 className="contact-heading">Let's Connect</h2>
-        <p className="text-muted">Drop us a message about products, partnerships, or sneaker care.</p>
+        <p className="text-lime">Drop us a message about products, partnerships, or sneaker care.</p>
       </div>
 <form ref={form} onSubmit={sendEmail} className="contact-form mx-auto">
   <div className="mb-3">
@@ -91,8 +91,20 @@ const Contact = () => {
     <button type="submit" className="btn btn-success px-4 rounded-pill">Send 🌿</button>
   </div>
 </form>
-
-    </div>
+<div className="map-container mt-5">
+  <iframe
+    title="Our Location"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.4784207488765!2d27.770238886609032!3d-26.278586307769146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95a4f2e3793a97%3A0xe140d6103d430e16!2s20511%20Tugela%20St%2C%20Protea%20Glen%2C%20Soweto%2C%201819!5e0!3m2!1sen!2sza!4v1755004647129!5m2!1sen!2sza"
+    width="100%"
+    height="350"
+    style={{ border: 0, borderRadius: '12px' }}
+    allowFullScreen=""
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  ></iframe>
+</div>
+</div>
+    
   );
 };
 

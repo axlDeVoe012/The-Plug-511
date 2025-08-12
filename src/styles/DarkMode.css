@@ -32,3 +32,515 @@ body.dark-mode .btn-outline-light:focus {
   color: #121212 !important;
   border-color: #00ffaa !important;
 }
+
+body.dark-mode .about-section{
+  background-color: #1e1e1e !important;
+}
+/* Dark mode - About Section */
+body.dark-mode .about-section {
+  background: linear-gradient(180deg, #1a1a1a 0%, #121212 100%);
+  color: #ddd !important;
+}
+
+body.dark-mode .about-section h2 {
+  background: linear-gradient(90deg, #00ffaa, #6effc5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.dark-mode .about-section .lead {
+  color: #aaa !important;
+}
+
+body.dark-mode .about-section p {
+  color: #ccc !important;
+}
+
+body.dark-mode .about-section h4 {
+  color: #00ffaa;
+}
+
+/* Cards in dark mode */
+body.dark-mode .about-section ul li {
+  background: #1e1e1e;
+  border: 1px solid rgba(0, 255, 170, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 255, 170, 0.05);
+}
+
+body.dark-mode .about-section ul li:hover {
+  box-shadow: 0 8px 24px rgba(0, 255, 170, 0.2);
+}
+
+/* Decorative shapes in dark mode */
+body.dark-mode .about-section::before {
+  background: #00ffaa;
+  opacity: 0.15;
+}
+
+body.dark-mode .about-section::after {
+  background: #007755;
+  opacity: 0.2;
+}
+
+/* src/styles/AboutDarkMode.css */
+
+/* Container */
+body.dark-mode .about-container {
+  background: linear-gradient(180deg, #1a1a1a 0%, #121212 100%);
+  color: #e0e0e0;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 255, 170, 0.05);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Logo animation in dark mode */
+body.dark-mode .about-container .animated-leaf {
+  filter: drop-shadow(0 0 6px rgba(0, 255, 170, 0.5));
+}
+
+/* Headings */
+body.dark-mode .about-container h1,
+body.dark-mode .about-container h4 {
+  background: linear-gradient(90deg, #00ffaa, #6effc5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+body.dark-mode .about-container h1 {
+  font-size: 2.2rem;
+}
+
+body.dark-mode .about-container h4 {
+  font-size: 1.2rem;
+}
+
+/* Muted text */
+body.dark-mode .about-container .text-muted {
+  color: #a5a5a5 !important;
+}
+
+/* Paragraphs */
+body.dark-mode .about-container p {
+  color: #cccccc;
+  line-height: 1.6;
+}
+
+/* Lists */
+body.dark-mode .about-container ul li {
+  background: #1e1e1e;
+  border: 1px solid rgba(0, 255, 170, 0.15);
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 0.5rem;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+body.dark-mode .about-container ul li:hover {
+  box-shadow: 0 4px 15px rgba(0, 255, 170, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Section spacing */
+body.dark-mode .about-container section {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Remove border for last section */
+body.dark-mode .about-container section:last-of-type {
+  border-bottom: none;
+}
+
+/* Smooth mode transition */
+body.dark-mode .about-container,
+body.dark-mode .about-container h1,
+body.dark-mode .about-container h4,
+body.dark-mode .about-container p,
+body.dark-mode .about-container ul li {
+  transition: all 0.3s ease;
+}
+
+/* Dark mode styles for Articles.css */
+body.dark-mode .articles-container {
+  background: linear-gradient(180deg, #000000 0%, #003300 100%);
+  color: #e0e0e0;
+}
+
+body.dark-mode .articles-title {
+  color: #ccffdd;
+}
+
+body.dark-mode .articles-subtitle {
+  color: #a3e4c5;
+}
+
+body.dark-mode .section-title {
+  color: #00ff88;
+  border-bottom: 4px solid #00ffaa;
+}
+
+body.dark-mode .sneaker-section-title {
+  color: #00e6a8;
+  border-color: #00ffaa;
+}
+
+body.dark-mode .article-card {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 255, 170, 0.08);
+}
+
+body.dark-mode .article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 255, 170, 0.15);
+}
+
+body.dark-mode .article-card h3 {
+  color: #00ffaa;
+}
+
+body.dark-mode .article-card p {
+  color: #c7c7c7;
+}
+
+/* PricingDark.css */
+
+/* Dark mode wrapper */
+body.dark-mode .pricing-section {
+  background: linear-gradient(160deg, #0a0f0d, #022c22);
+  color: #d1fae5;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+body.dark-mode .pricing-section h2 {
+  color: #6ee7b7;
+}
+
+body.dark-mode .pricing-section .lead {
+  color: #34d399;
+}
+
+/* ===== Card Styling in Dark Mode ===== */
+body.dark-mode .pricing-card {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow:
+    0 0 20px rgba(16, 185, 129, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 0.05);
+}
+
+/* Blue card dark mode */
+body.dark-mode .blue-card {
+  background: linear-gradient(135deg, #0d1b2a, #1e3a8a);
+}
+
+/* Black card dark mode */
+body.dark-mode .black-card {
+  background: linear-gradient(135deg, #0b0f13, #1f2937);
+}
+
+/* Green card dark mode */
+body.dark-mode .green-card {
+  background: linear-gradient(135deg, #033d2f, #065f46);
+}
+
+/* Headings */
+body.dark-mode .pricing-card h4 {
+  color: #a7f3d0;
+}
+
+body.dark-mode .subtitle {
+  color: #94d5c2;
+}
+
+/* Divider */
+body.dark-mode .divider {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Lists */
+body.dark-mode .pricing-card li {
+  color: #d1fae5;
+}
+
+body.dark-mode .pricing-card li strong {
+  color: #bbf7d0;
+}
+
+body.dark-mode .pricing-card li.subheading {
+  color: #6ee7b7;
+}
+
+/* Coming soon badge */
+body.dark-mode .coming-soon-tag {
+  background: #f87171;
+  color: #fff;
+}
+
+/* ContactDark.css */
+
+/* Dark background inspired by your article section */
+body.dark-mode .contact-container {
+  background: linear-gradient(160deg, #0a0f0d, #022c22);
+  color: #e0f2f1;
+  transition: background 0.4s ease, color 0.4s ease;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Heading */
+body.dark-mode .contact-heading {
+  color: #a7f3d0;
+  text-shadow: 0 0 10px rgba(6, 95, 70, 0.5);
+}
+
+/* Green accent text */
+body.dark-mode .text-lime {
+  color: #6ee7b7;
+}
+
+/* Leaf icon */
+body.dark-mode .leaf-icon {
+  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.5));
+}
+
+/* Form labels */
+body.dark-mode .form-label {
+  color: #bbf7d0;
+}
+
+/* Input & textarea fields */
+body.dark-mode .form-control {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(110, 231, 183, 0.3);
+  color: #e0f2f1;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+body.dark-mode .form-control::placeholder {
+  color: rgba(209, 250, 229, 0.6);
+}
+
+body.dark-mode .form-control:focus {
+  border-color: #6ee7b7;
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 10px rgba(110, 231, 183, 0.5);
+  outline: none;
+}
+
+/* Send button */
+body.dark-mode .btn-success {
+  background: linear-gradient(135deg, #065f46, #047857);
+  border: none;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode .btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.6);
+}
+
+/* Rounded elements glow slightly on hover */
+body.dark-mode input.rounded-pill:hover,
+body.dark-mode textarea.rounded-4:hover {
+  box-shadow: 0 0 6px rgba(110, 231, 183, 0.4);
+}
+/* =========================
+   Dark Mode Product Card - Purple & Teal
+   ========================= */
+body.dark-mode .product-card {
+  border-radius: 1rem;
+  background: linear-gradient(180deg, #0d1117 0%, #161b22 100%);
+  border: 1px solid rgba(138, 43, 226, 0.2); /* purple tint */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode .product-card:hover {
+  transform: scale(1.015);
+  box-shadow: 0 10px 25px rgba(138, 43, 226, 0.2); /* purple glow */
+}
+
+/* Image */
+body.dark-mode .product-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+  border-radius: 0.75rem 0.75rem 0 0;
+}
+
+body.dark-mode .product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+/* Hover overlay */
+body.dark-mode .hover-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: rgba(13, 17, 23, 0.85);
+  color: #fff;
+  backdrop-filter: blur(3px);
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+body.dark-mode .product-card:hover .hover-overlay {
+  transform: translateY(0);
+}
+
+/* Price tags */
+body.dark-mode .floating-price {
+  position: relative;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  background: rgba(138, 43, 226, 0.15); /* purple background */
+  color: #bf8cff; /* lighter purple text */
+}
+
+body.dark-mode .floating-price.coming-soon {
+  background: rgba(0, 255, 200, 0.15); /* teal background */
+  color: #00ffcc; /* vibrant teal text */
+}
+
+/* Buttons */
+body.dark-mode .animate-btn {
+  transition: all 0.3s ease;
+  font-weight: 500;
+  border-radius: 2rem;
+  padding: 0.6rem 1rem;
+  background: rgba(138, 43, 226, 0.15); /* purple base */
+  color: #bf8cff;
+  border: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+body.dark-mode .animate-btn:hover {
+  background-color: #bf8cff; /* light purple */
+  color: #000;
+  transform: scale(1.03);
+}
+
+/* Layout fixes */
+body.dark-mode .card.product-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Form inputs */
+body.dark-mode input.form-control {
+  border-radius: 2rem;
+  padding: 0.7rem 1.2rem;
+  background: #1c2128;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+body.dark-mode input.form-control::placeholder {
+  color: #888;
+}
+
+/* Dark mode body */
+.dark-mode {
+  background-color: #121212; /* main background */
+  color: #e0e0e0; /* primary text */
+}
+
+/* Panels / containers */
+.dark-mode .product-card,
+.dark-mode .modal-content {
+  background-color: #1e1e1e; /* card/modal bg */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 255, 170, 0.1);
+}
+
+/* Text colors */
+.dark-mode p,
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5 {
+  color: #e0e0e0;
+}
+
+.dark-mode .text-muted {
+  color: #a0a0a0;
+}
+
+/* Accent colors */
+.dark-mode .highlight {
+  color: #00ffaa; /* neon green */
+}
+
+.dark-mode .price {
+  color: #ffdd44; /* warm yellow */
+}
+
+.dark-mode .btn-primary {
+  background-color: #00ffaa;
+  color: #0b0b0b;
+  border: none;
+}
+
+.dark-mode .btn-primary:hover {
+  background-color: #00e699;
+}
+
+/* Inputs */
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+  border: none;
+}
+
+.dark-mode input::placeholder {
+  color: #a0a0a0;
+}
+
+/* Links */
+.dark-mode a {
+  color: #00ffaa;
+}
+
+.dark-mode a:hover {
+  color: #00e699;
+}
+
+/* Image borders for consistency */
+.dark-mode img {
+  border-radius: 8px;
+  border: 1px solid rgba(0, 255, 170, 0.2);
+}
+
+/* === Dark Mode Map Styling === */
+body.dark-mode .map-container {
+  background: #0e0f11; /* fallback bg while map loads */
+  padding: 0.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .map-container iframe {
+  border: none;
+  border-radius: 12px;
+  filter: grayscale(40%) invert(90%) hue-rotate(180deg) contrast(90%);
+  transition: filter 0.3s ease;
+}
+
+body.dark-mode .map-container iframe:hover {
+  filter: grayscale(20%) invert(85%) hue-rotate(180deg) contrast(100%) brightness(1.1);
+}
