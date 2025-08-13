@@ -76,7 +76,7 @@ const products = [
     name: "Bugatti Vape 9K",
     price: "R250.00",
     description: "Luxurious Bugatti 9K vape designed for quality and style.",
-    mainImage: '/sales/bugatti/bugatti4.png',
+    mainImage: '/sales/bugatti/bugatti4.webp',
     images: ["/sales/Bugatti9k.webp", "/sales/bugatti/bugg.webp","/sales/bugmain.webp"]
   },
   {
