@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -13,7 +14,29 @@ import Articles from './pages/Articles';
 import Pricing from './pages/Pricing';
 import { Analytics } from "@vercel/analytics/react";
 
+import products from './data/products'; // adjust path if needed
+
+function preloadImages() {
+  const imagePaths = [];
+
+  products.forEach(product => {
+    if (product.mainImage) imagePaths.push(product.mainImage);
+    if (product.images) imagePaths.push(...product.images);
+  });
+
+  const uniquePaths = [...new Set(imagePaths)];
+
+  uniquePaths.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+}
+
 function App() {
+  useEffect(() => {
+    preloadImages();
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -31,6 +54,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <Analytics />
     </>
   );
 }
