@@ -14,7 +14,7 @@ import Articles from './pages/Articles';
 import Pricing from './pages/Pricing';
 import { Analytics } from "@vercel/analytics/react";
 
-import products from './data/products'; // adjust path if needed
+import products from './data/products';
 
 function preloadImages() {
   const imagePaths = [];
@@ -25,7 +25,6 @@ function preloadImages() {
   });
 
   const uniquePaths = [...new Set(imagePaths)];
-
   uniquePaths.forEach(src => {
     const img = new Image();
     img.src = src;
