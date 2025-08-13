@@ -4,7 +4,7 @@ const products = [
     name: "Hubbly Flavours",
     price: "R35.00",
     description: "Assorted flavours including Golden Barzz, Amaren, Nareen, Nakhla, and Richman for your hubbly sessions.",
-    mainImage: "/sales/flavours/download.jpeg",
+    mainImage: "/sales/flavours/flav.png",
     images: ["/sales/flavours/golden1.png", "/sales/flavours/amaren.jpg", "/sales/flavours/nareen.webp", "/sales/flavours/nakhla.webp", "/sales/flavours/richman.jpeg"]
   },
   {
@@ -68,8 +68,8 @@ const products = [
     name: "Nasty Vape 14K X",
     price: "R350.00",
     description: "Nasty 14K X disposable vape with extended puffs and bold taste.",
-    mainImage: "/sales/nasty-bar2/nastybar.webp",
-    images: ["/sales/nasty-bar2/14X_side.jpeg", "/sales/nasty-bar2/14X_side2.jpeg", "/sales/nasty-bar2/14X_side3.jpeg"]
+    mainImage: "/sales/xbar.png",
+    images: ["/sales/nasty-bar2/nastybar.webp","/sales/nasty-bar2/14X_side.jpeg", "/sales/nasty-bar2/14X_side2.jpeg", "/sales/nasty-bar2/14X_side3.jpeg"]
   },
   {
     id: 10,
@@ -84,8 +84,8 @@ const products = [
     name: "Velocity Vape 25K",
     price: "R350.00",
     description: "Long-lasting Velocity 25K disposable vape with premium feel.",
-    mainImage: "/sales/velocity2.jpg",
-    images: ["/sales/velocity.jpeg", "/sales/volocity.jpeg", "/sales/velocity.webp"]
+    mainImage: "/sales/velo.png",
+    images: ["/sales/velocity2.jpg","/sales/o-vape.png","/sales/velocity.jpeg", "/sales/volocity.jpeg", "/sales/velocity.webp"]
   },
   {
     id: 12,
@@ -124,7 +124,7 @@ const products = [
     name: "Vuse Refills",
     price: "R150.00",
     description: "Vuse refills deliver powerful flavour in a compact body.",
-    mainImage: "/sales/vusem.png",
+    mainImage: "/sales/vuse1.png",
     images: ["/sales/vuse.png", "/sales/vuse1.jpg", "/sales/vuse4.jpeg", "/sales/v.jpeg"]
   },
   {
@@ -276,7 +276,7 @@ const products = [
     name: "Pitbull Cannabis (Per Gram)",
     price: "R80.00",
     description: "Premium Pitbull cannabis strain known for its potency and smoothness.",
-    mainImage: "/sales/cannabis/Pitbull.jpg",
+    mainImage: "/sales/cannabis/weed6.png",
     images: ["/sales/cannabis/pit.jpg","/sales/cannabis/buds-dark.jpg"]
   },
   {
@@ -284,7 +284,7 @@ const products = [
     name: "Heli Jelly Cannabis (Per Gram)",
     price: "R60.00",
     description: "Heli Jelly strain offering a relaxing and euphoric experience.",
-    mainImage: "/sales/cannabis/indoor.jpg",
+    mainImage: "/sales/cannabis/weed3.png",
     images: ["/sales/cannabis/indoor_side.jpg","/sales/cannabis/indoor.jpg"]
   },
   {
@@ -292,7 +292,7 @@ const products = [
     name: "Dutch Magic Cannabis (Per Gram)",
     price: "R60.00",
     description: "Dutch Magic is a classic strain with a balanced hybrid effect.",
-    mainImage: "/sales/cannabis/dutchmagic.jpg",
+    mainImage: "/sales/cannabis/weed9.png",
     images: ["/sales/cannabis/weed.jpg","/sales/cannabis/dutchmagic.jpg"]
   },
   {
@@ -300,7 +300,7 @@ const products = [
     name: "Money Grapes Cannabis (Per Gram)",
     price: "R60.00",
     description: "Money Grapes has a sweet grape aroma and uplifting high.",
-    mainImage: "/sales/cannabis/moneygrapes.jpg",
+    mainImage: "/sales/cannabis/weed7.png",
     images: ["/sales/cannabis/moneygrapes_side.jpg", "/sales/cannabis/buds.jpg"]
   },
   {
@@ -308,7 +308,7 @@ const products = [
     name: "Pop Tarts Cannabis (Per Gram)",
     price: "R60.00",
     description: "Pop Tarts strain with dessert-like flavor and mellow effects.",
-    mainImage: "/sales/cannabis/poptarts.jpg",
+    mainImage: "/sales/cannabis/buds.jpg",
     images: ["/sales/cannabis/weed1.jpg","/sales/cannabis/buds.jpg"]
   },
   {
@@ -316,7 +316,7 @@ const products = [
     name: "Purple Grape Cannabis (Per Gram)",
     price: "R60.00",
     description: "Fruity and fragrant Purple Grape strain great for relaxation.",
-    mainImage: "/sales/cannabis/purple.jpg",
+    mainImage: "/sales/cannabis/weed5.png",
     images: ["/sales/cannabis/closeup.jpg","/sales/cannabis/purple.jpg"]
   },
   {
@@ -332,7 +332,7 @@ const products = [
     name: "Dead Jack (Per Gram)",
     price: "R100.00",
     description: "Dead Jack, perfect for experienced users.",
-    mainImage: "/sales/cannabis/deadjack.jpg",
+    mainImage: "/sales/cannabis/weed8.png",
     images: ["/sales/cannabis/deadjack2.jpg","/sales/cannabis/buds-dark.jpg"]
   }
 ];
