@@ -1,5 +1,5 @@
 // preloadImages.js
-import products from "./products";
+import products from "./sales";
 
 export function preloadImages() {
   const imagePaths = [];
