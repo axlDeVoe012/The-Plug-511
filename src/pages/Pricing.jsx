@@ -21,9 +21,9 @@ const Pricing = () => {
             </div>
             <hr className="divider" />
             <ul className="list-unstyled text-start">
-              <li><strong>Pre-Rolls:</strong> R40 – R60</li>
+              <li><strong>Pre-Rolls:</strong></li>
               <li><strong>Edibles:</strong> R40 – R50</li>
-              <li><strong>Buds (per gram):</strong> R60 – R100</li>
+              <li><strong>Buds (per gram):</strong></li>
               <li><strong>Delivery:</strong> Free on orders over 5g and R250.00.<br/>
                   &nbsp;&nbsp;&nbsp;&nbsp;A delivery fee applies if you’re more than 20km away.</li>
               <li><strong>Grinders & Rollers:</strong> From R30</li>

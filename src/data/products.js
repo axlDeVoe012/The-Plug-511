@@ -162,7 +162,7 @@ const products = [
   {
     id: 21,
     name: "Pre-Rolled Joint – Indoor",
-    price: "R60.00",
+    price: "",
     description: "Premium indoor cannabis pre-roll for a clean high.",
     mainImage: "/sales/prerolled/indoor2.jpg",
     images: ["/sales/prerolled/indoor.jpg", "/sales/prerolled/indoor_side.jpg"]
@@ -170,7 +170,7 @@ const products = [
   {
     id: 22,
     name: "Pre-Rolled Joint – Greenhouse",
-    price: "R40.00",
+    price: "",
     description: "Greenhouse-grown pre-rolled joint for a mellow vibe.",
     mainImage: "/sales/prerolled/cannproduct1.jpg",
     images: ["/sales/prerolled/greenhouse.jpg", "/sales/prerolled/bud.jpg"]
@@ -274,7 +274,7 @@ const products = [
   {
     id: 35,
     name: "Pitbull Cannabis (Per Gram)",
-    price: "R80.00",
+    price: "",
     description: "Premium Pitbull cannabis strain known for its potency and smoothness.",
     mainImage: "/sales/cannabis/weed6.png",
     images: ["/sales/cannabis/pit.jpg","/sales/cannabis/buds-dark.jpg"]
@@ -282,7 +282,7 @@ const products = [
   {
     id: 36,
     name: "Heli Jelly Cannabis (Per Gram)",
-    price: "R60.00",
+    price: "",
     description: "Heli Jelly strain offering a relaxing and euphoric experience.",
     mainImage: "/sales/cannabis/weed3.png",
     images: ["/sales/cannabis/indoor_side.jpg","/sales/cannabis/indoor.jpg"]
@@ -290,7 +290,7 @@ const products = [
   {
     id: 37,
     name: "Dutch Magic Cannabis (Per Gram)",
-    price: "R60.00",
+    price: "",
     description: "Dutch Magic is a classic strain with a balanced hybrid effect.",
     mainImage: "/sales/cannabis/weed9.png",
     images: ["/sales/cannabis/weed.jpg","/sales/cannabis/dutchmagic.jpg"]
@@ -298,7 +298,7 @@ const products = [
   {
     id: 38,
     name: "Money Grapes Cannabis (Per Gram)",
-    price: "R60.00",
+    price: "",
     description: "Money Grapes has a sweet grape aroma and uplifting high.",
     mainImage: "/sales/cannabis/weed7.png",
     images: ["/sales/cannabis/moneygrapes_side.jpg", "/sales/cannabis/buds.jpg"]
@@ -306,7 +306,7 @@ const products = [
   {
     id: 39,
     name: "Pop Tarts Cannabis (Per Gram)",
-    price: "R60.00",
+    price: "",
     description: "Pop Tarts strain with dessert-like flavor and mellow effects.",
     mainImage: "/sales/cannabis/buds.jpg",
     images: ["/sales/cannabis/weed1.jpg","/sales/cannabis/buds.jpg"]
@@ -314,7 +314,7 @@ const products = [
   {
     id: 40,
     name: "Purple Grape Cannabis (Per Gram)",
-    price: "R60.00",
+    price: "",
     description: "Fruity and fragrant Purple Grape strain great for relaxation.",
     mainImage: "/sales/cannabis/weed5.png",
     images: ["/sales/cannabis/closeup.jpg","/sales/cannabis/purple.jpg"]
@@ -322,7 +322,7 @@ const products = [
   {
     id: 41,
     name: "Loud Cake Cannabis (Per Gram)",
-    price: "R60.00",
+    price: "",
     description: "Potent Loud Cake strain, perfect for experienced users.",
     mainImage: "/sales/cannabis/buds-dark.jpg",
     images: ["/sales/cannabis/loud.jpg","/sales/cannabis/buds-dark.jpg"]
@@ -330,7 +330,7 @@ const products = [
   {
     id: 42,
     name: "Dead Jack (Per Gram)",
-    price: "R100.00",
+    price: "",
     description: "Dead Jack, perfect for experienced users.",
     mainImage: "/sales/cannabis/weed8.png",
     images: ["/sales/cannabis/deadjack2.jpg","/sales/cannabis/buds-dark.jpg"]
