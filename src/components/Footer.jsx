@@ -11,7 +11,7 @@ const Footer = () => (
         <span className="visually-hidden">Instagram</span>
       </a>
       <a
-        href="https://wa.me/27720615124" // ← Replace with your WhatsApp number like 27721234567
+        href="https://wa.me/27609631155" // ← Replace with your WhatsApp number like 27721234567
         className="text-white me-3"
         target="_blank"
         rel="noopener noreferrer"

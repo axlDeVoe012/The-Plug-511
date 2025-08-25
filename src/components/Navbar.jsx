@@ -1,53 +1,57 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaBars } from 'react-icons/fa';
 import logo from '../assets/logo1.png';
+import sunIcon from '../assets/Sun.svg';
+import moonIcon from '../assets/Moon.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-
+import '../styles/DarkMode.css';
+import '../styles/Navbar.css'
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem('darkMode') === 'true');
   const [isExpanded, setIsExpanded] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Apply dark mode class on mount and toggle
+  // Apply dark mode
   useEffect(() => {
     document.body.classList.toggle('dark-mode', darkMode);
     localStorage.setItem('darkMode', darkMode);
   }, [darkMode]);
 
-  // Auto-collapse navbar when user scrolls
+  // Auto-collapse on scroll
   useEffect(() => {
     const handleScroll = () => {
       if (isExpanded) {
         const navbarToggler = document.querySelector('.navbar-toggler');
         if (navbarToggler && window.getComputedStyle(navbarToggler).display !== 'none') {
-          navbarToggler.click(); // Simulate click to close the navbar
+          navbarToggler.click();
           setIsExpanded(false);
         }
       }
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isExpanded]);
 
-  // Track navbar collapse/expand state
+  // Track navbar collapse state
   useEffect(() => {
     const navbar = document.getElementById('navbarNav');
-    const handleShowEvent = () => setIsExpanded(true);
-    const handleHideEvent = () => setIsExpanded(false);
+    const handleShow = () => setIsExpanded(true);
+    const handleHide = () => setIsExpanded(false);
 
-    navbar?.addEventListener('shown.bs.collapse', handleShowEvent);
-    navbar?.addEventListener('hidden.bs.collapse', handleHideEvent);
+    navbar?.addEventListener('shown.bs.collapse', handleShow);
+    navbar?.addEventListener('hidden.bs.collapse', handleHide);
 
     return () => {
-      navbar?.removeEventListener('shown.bs.collapse', handleShowEvent);
-      navbar?.removeEventListener('hidden.bs.collapse', handleHideEvent);
+      navbar?.removeEventListener('shown.bs.collapse', handleShow);
+      navbar?.removeEventListener('hidden.bs.collapse', handleHide);
     };
   }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav className="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
       <div className="container">
         {/* Logo */}
         <Link className="navbar-brand d-flex align-items-center" to="/">
@@ -55,42 +59,54 @@ const Navbar = () => {
           <span>The Plug</span>
         </Link>
 
-        {/* Toggler button */}
+        {/* Custom Toggle Button */}
         <button
           className="navbar-toggler"
           type="button"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
           aria-controls="navbarNav"
           aria-expanded={isExpanded}
           aria-label="Toggle navigation"
-          title="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <FaBars color="#fff" />
         </button>
 
-        {/* Collapsible menu */}
+        {/* Menu */}
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
-            <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/about">About Us</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/products">Products</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/education">Education</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/sneaker-care">Sneaker Care</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/services">Services</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/articles">Articles</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/pricing">Pricing</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/contact">Contact</Link></li>
+            {[
+              { to: '/', label: 'Home' },
+              { to: '/about', label: 'About Us' },
+              { to: '/products', label: 'Products' },
+              { to: '/education', label: 'Education' },
+              { to: '/sneaker-care', label: 'Sneaker Care' },
+              { to: '/services', label: 'Services' },
+              { to: '/articles', label: 'Articles' },
+              { to: '/pricing', label: 'Pricing' },
+              { to: '/contact', label: 'Contact' },
+            ].map((item) => (
+              <li className="nav-item" key={item.to}>
+                <Link className="nav-link" to={item.to}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
 
-            {/* Dark mode toggle */}
+            {/* Dark Mode Switch */}
             <li className="nav-item ms-lg-3">
-              <button
-                type="button"
-                className="btn btn-sm btn-outline-light"
-                onClick={() => setDarkMode(!darkMode)}
-              >
-                {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
-              </button>
+              <input
+                className="dark_mode_input"
+                type="checkbox"
+                id="darkmode-toggle"
+                onChange={() => setDarkMode(!darkMode)}
+                checked={darkMode}
+              />
+              <label className="dark_mode_label" htmlFor="darkmode-toggle">
+                <img src={sunIcon} alt="Sun icon" className="sun" />
+                <img src={moonIcon} alt="Moon icon" className="moon" />
+              </label>
             </li>
           </ul>
         </div>

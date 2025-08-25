@@ -6,7 +6,8 @@
   margin: 0 auto;
   padding: 2rem;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f9fafb;
+  background: linear-gradient(180deg, #000000 0%, #003300 100%);
+
 }
 
 .articles-title {
@@ -15,14 +16,14 @@
   text-align: center;
   text-align: -webkit-center;
   margin-bottom: 1rem;
-  color: #1a1a1a;
+  color: #fafafa;
 }
 
 .articles-subtitle {
   text-align: center;
   text-align: -webkit-center;
   font-size: 1.125rem;
-  color: #555;
+  color: #ebebeb;
   margin-bottom: 2.5rem;
   max-width: 700px;
   margin-left: auto;

@@ -8,8 +8,8 @@ const About = () => (
   <div className="about-container py-4">
     <div className="text-center mb-4">
       <img src={logo} alt="Logo" className="animated-leaf" />
-      <h1 className="mb-1">🌿 About The Plug</h1>
-      <p className="text-muted">High quality cannabis. Township-rooted. Community-driven.</p>
+      <h1 className="mb-1">🌿 About Us</h1>
+      <p className="text-lime">High quality cannabis. Township-rooted. Community-driven.</p>
     </div>
 
     <section className="mb-4">
