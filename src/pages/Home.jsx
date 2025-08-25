@@ -1,6 +1,6 @@
 
 import '../styles/Home.css';
-import landingImage from '../assets/landing.svg';
+import landingImage from '../assets/home.png';
 import '../index.css';
 
 
