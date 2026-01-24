@@ -60,7 +60,7 @@ const Articles = () => {
     // ✅ SignalR Authentication & Proxy
     // -------------------------------------------
     const connection = new HubConnectionBuilder()
-      .withUrl("/notifications", { 
+      .withUrl("http://theplug-env.eba-m4aukda5.eu-north-1.elasticbeanstalk.com/hubs/notifications", { 
          accessTokenFactory: () => sessionStorage.getItem("token") 
       })
       .withAutomaticReconnect()
