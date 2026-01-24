@@ -1,0 +1,20 @@
+.become-member-container .form-control::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+/* For date picker icon color in dark mode */
+.become-member-container .form-control::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+.become-member-container select#gender {
+  background-color: #022c22 !important;
+  color: #e0f2f1 !important;
+}
+
+.become-member-container select#gender:focus {
+  background-color: #022c22 !important;
+  color: #e0f2f1 !important;
+  border-color: #6ee7b7;
+  box-shadow: 0 0 10px rgba(110, 231, 183, 0.5);
+}

@@ -541,6 +541,15 @@ body.dark-mode .map-container iframe {
   transition: filter 0.3s ease;
 }
 
+
 body.dark-mode .map-container iframe:hover {
   filter: grayscale(20%) invert(85%) hue-rotate(180deg) contrast(100%) brightness(1.1);
+}
+
+/* Added for gender dropdown background in dark mode */
+body.dark-mode select.form-control.rounded-pill {
+  background-color: #1c2128;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
 }

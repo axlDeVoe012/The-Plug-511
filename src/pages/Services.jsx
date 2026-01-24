@@ -8,18 +8,18 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 
 // Images
-import car1 from '../assets/products/gti.png';
-import car2 from '../assets/products/car1.png';
-import car3 from '../assets/products/car3.png';
-import cannabis1 from '../assets/products/cannprod1.png';
-import cannabis2 from '../assets/products/cannprod2.png';
-import cannabis3 from '../assets/products/cannprod3.png';
-import ads1 from '../assets/products/advert.png';
-import ads2 from '../assets/products/advert2.jpeg';
-import ads3 from '../assets/products/advert3.jpeg';
-import hair1 from '../assets/products/hair1.png';
-import hair2 from '../assets/products/hair2.png';
-import hair3 from '../assets/products/hair3.png';
+import car1 from '../assets/products/gti.webp';
+import car2 from '../assets/products/car1.webp';
+import car3 from '../assets/products/car3.webp';
+import cannabis1 from '../assets/products/cannprod1.webp';
+import cannabis2 from '../assets/products/cannprod2.webp';
+import cannabis3 from '../assets/products/cannprod3.webp';
+import ads1 from '../assets/products/advert.webp';
+import ads2 from '../assets/products/advert2.webp';
+import ads3 from '../assets/products/advert3.webp';
+import hair1 from '../assets/products/hair1.webp';
+import hair2 from '../assets/products/hair2.webp';
+import hair3 from '../assets/products/hair3.webp';
 
 const serviceData = [
   {

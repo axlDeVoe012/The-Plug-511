@@ -12,6 +12,7 @@ import Services from './pages/Services';
 import Articles from './pages/Articles';
 import Pricing from './pages/Pricing';
 import { Analytics } from "@vercel/analytics/react";
+import BecomeMember from './pages/BecomeMember';
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
           <Route path="/articles" element={<Articles />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/become-member" element={<BecomeMember />} />
+
         </Routes>
       </main>
       <Footer />

@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../assets/logo1.png';  // Your logo image path
+import logo from '../assets/logo1.webp';  // Your logo image path
 import '../styles/About.css';
 import '../index.css';
 

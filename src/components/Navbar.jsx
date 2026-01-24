@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
-import logo from '../assets/logo1.png';
+import logo from '../assets/logo1.webp';
 import sunIcon from '../assets/Sun.svg';
 import moonIcon from '../assets/Moon.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -86,6 +86,7 @@ const Navbar = () => {
               { to: '/articles', label: 'Articles' },
               { to: '/pricing', label: 'Pricing' },
               { to: '/contact', label: 'Contact' },
+              { to: '/become-member', label: 'Become a Member' },
             ].map((item) => (
               <li className="nav-item" key={item.to}>
                 <Link className="nav-link" to={item.to}>
