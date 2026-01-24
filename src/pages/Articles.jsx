@@ -6,7 +6,7 @@ import '../styles/Articles.css';
 // ✅ CHANGE 2: Define a specific URL for images (Since API_BASE is empty for the proxy)
 // We use the direct AWS HTTP link for images to avoid 404s, 
 // OR you must add "/Images/*" to your _redirects file.
-const IMAGE_BASE = "http://theplug-env.eba-m4aukda5.eu-north-1.elasticbeanstalk.com";
+const IMAGE_BASE = "";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
