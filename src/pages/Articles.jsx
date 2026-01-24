@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr"; 
-import { api } from "../api"; // ✅ Make sure this points to your api.ts file
+import { api } from "../axios/api"; // ✅ Make sure this points to your api.ts file
 import '../styles/Articles.css';
 
 const Articles = () => {
