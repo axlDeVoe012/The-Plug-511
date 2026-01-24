@@ -60,7 +60,7 @@ const Articles = () => {
     // ✅ SignalR Authentication & Proxy
     // -------------------------------------------
     const connection = new HubConnectionBuilder()
-      .withUrl("/hubs/notifications", { 
+      .withUrl("/notifications", { 
          accessTokenFactory: () => sessionStorage.getItem("token") 
       })
       .withAutomaticReconnect()
