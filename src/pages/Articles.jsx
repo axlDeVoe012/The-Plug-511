@@ -1,12 +1,7 @@
 import { useState, useEffect } from "react";
 import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr"; 
-import { api } from "../axios/api"; // ✅ CHANGE 1: Import your configured Axios instance
+import { api } from "../api"; // ✅ Make sure this points to your api.ts file
 import '../styles/Articles.css';
-
-// ✅ CHANGE 2: Define a specific URL for images (Since API_BASE is empty for the proxy)
-// We use the direct AWS HTTP link for images to avoid 404s, 
-// OR you must add "/Images/*" to your _redirects file.
-const IMAGE_BASE = "";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
@@ -14,25 +9,43 @@ const Articles = () => {
   const [error, setError] = useState(null);
   const [expandedArticles, setExpandedArticles] = useState({});
 
+  // ✅ HELPER: Cleans the image URL to ensure it uses the Proxy
+  // This turns "http://localhost:5282/Images/car.jpg" -> "/Images/car.jpg"
+  const getImageUrl = (path) => {
+    if (!path) return "";
+    
+    // If it's already a relative path, return it
+    if (path.startsWith("/Images")) return path;
+    
+    // If it's a full URL, strip the domain part
+    const index = path.indexOf("/Images");
+    if (index !== -1) {
+      return path.substring(index);
+    }
+    
+    // Fallback: If it's just a filename, assume it's in /Images/
+    if (!path.startsWith("/")) return `/Images/${path}`;
+    
+    return path;
+  };
+
   useEffect(() => {
     const fetchArticles = async () => {
       try {
         setLoading(true);
         setError(null);
         
-        // ✅ CHANGE 3: Use 'api.get' instead of 'fetch'
-        // This ensures requests go through the Netlify Proxy (/api/...) 
-        // AND includes the Bearer Token if the user is logged in.
+        // ✅ Proxy handles the URL (/api/...) and Auth Token
         const response = await api.get('/Articles/get-allArticles');
-
-        // Axios returns data directly in 'response.data'
         const data = response.data;
         
-        if (data.status && data.items) {
-          setArticles(data.items);
-        } else {
-          throw new Error("Invalid response format");
-        }
+        // Handle different data structures safely
+        let items = [];
+        if (data.status && data.items) items = data.items;
+        else if (Array.isArray(data)) items = data;
+        
+        setArticles(items);
+
       } catch (err) {
         console.error("Failed to load articles", err);
         setError("Failed to load articles. Please try again later.");
@@ -44,30 +57,27 @@ const Articles = () => {
     fetchArticles();
 
     // -------------------------------------------
-    // ✅ CHANGE 4: SignalR Authentication & Proxy
+    // ✅ SignalR Authentication & Proxy
     // -------------------------------------------
     const connection = new HubConnectionBuilder()
-      .withUrl("/hubs/notifications", { // ✅ Point to relative path (Proxy handles the rest)
-         // ✅ Send the JWT Token so the backend knows who this is
+      .withUrl("/hubs/notifications", { 
          accessTokenFactory: () => sessionStorage.getItem("token") 
       })
       .withAutomaticReconnect()
       .configureLogging(LogLevel.Information)
       .build();
 
-    // Handle Create
+    // Event Handlers
     connection.on("ArticleCreated", (newArticle) => {
       console.log("Real-time Create:", newArticle);
       setArticles(prev => [newArticle, ...prev]); 
     });
 
-    // Handle Update
     connection.on("ArticleUpdated", (updatedArticle) => {
       console.log("Real-time Update:", updatedArticle);
       setArticles(prev => prev.map(a => a.id === updatedArticle.id ? updatedArticle : a));
     });
 
-    // Handle Delete
     connection.on("ArticleDeleted", (articleId) => {
       console.log("Real-time Delete:", articleId);
       setArticles(prev => prev.filter(a => a.id !== articleId));
@@ -110,9 +120,8 @@ const Articles = () => {
                 {a.images?.[0] && (
                   <div className="article-image-container">
                     <img
-                      // ✅ CHANGE 5: Use IMAGE_BASE for images
-                      // Since the proxy only handles /api, we need the full URL for static files
-                      src={`${IMAGE_BASE}${a.images[0]}`}
+                      // ✅ CHANGE: Use the helper to strip 'http://localhost'
+                      src={getImageUrl(a.images[0])}
                       alt={a.title}
                       className="article-image"
                       onError={(e) => { e.target.style.display = 'none'; }}
