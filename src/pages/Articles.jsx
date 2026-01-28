@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr"; 
-import { api } from "../axios/api"; // ✅ Make sure this points to your api.ts file
+import { api } from "../api"; // ✅ Points to your configured api.ts
 import '../styles/Articles.css';
 
 const Articles = () => {
@@ -9,22 +9,31 @@ const Articles = () => {
   const [error, setError] = useState(null);
   const [expandedArticles, setExpandedArticles] = useState({});
 
-  // ✅ HELPER: Cleans the image URL to ensure it uses the Proxy
-  // This turns "http://localhost:5282/Images/car.jpg" -> "/Images/car.jpg"
+  // ✅ HELPER: The "Universal" Image Cleaner
+  // This guarantees images load via Proxy regardless of what's in the DB
   const getImageUrl = (path) => {
     if (!path) return "";
     
-    // If it's already a relative path, return it
-    if (path.startsWith("/Images")) return path;
-    
-    // If it's a full URL, strip the domain part
-    const index = path.indexOf("/Images");
-    if (index !== -1) {
-      return path.substring(index);
+    // 1. If the DB saved a full URL (localhost or AWS), strip the domain.
+    // We WANT relative paths so Netlify can proxy them securely.
+    if (path.includes("http")) {
+       try {
+         const urlObj = new URL(path);
+         return urlObj.pathname; // Returns "/uploads/image.jpg" or "/Images/image.jpg"
+       } catch (e) {
+         console.error("Invalid URL in DB:", path);
+       }
+    }
+
+    // 2. If it's already a correct relative path, return it.
+    if (path.startsWith("/uploads") || path.startsWith("/Images")) {
+        return path;
     }
     
-    // Fallback: If it's just a filename, assume it's in /Images/
-    if (!path.startsWith("/")) return `/Images/${path}`;
+    // 3. Fallback: If backend just sent "file.jpg", assume it's in "uploads"
+    if (!path.startsWith("/")) {
+        return `/uploads/${path}`;
+    }
     
     return path;
   };
@@ -35,11 +44,11 @@ const Articles = () => {
         setLoading(true);
         setError(null);
         
-        // ✅ Proxy handles the URL (/api/...) and Auth Token
+        // ✅ Proxy handles /api -> AWS
         const response = await api.get('/Articles/get-allArticles');
         const data = response.data;
         
-        // Handle different data structures safely
+        // Handle different backend response structures safely
         let items = [];
         if (data.status && data.items) items = data.items;
         else if (Array.isArray(data)) items = data;
@@ -60,8 +69,9 @@ const Articles = () => {
     // ✅ SignalR Authentication & Proxy
     // -------------------------------------------
     const connection = new HubConnectionBuilder()
+      // ✅ Must match your _redirects rule: /hubs/* -> AWS /hubs/notifications
       .withUrl("/hubs/notifications", { 
-         accessTokenFactory: () => sessionStorage.getItem("token") 
+          accessTokenFactory: () => sessionStorage.getItem("token") 
       })
       .withAutomaticReconnect()
       .configureLogging(LogLevel.Information)
@@ -120,10 +130,11 @@ const Articles = () => {
                 {a.images?.[0] && (
                   <div className="article-image-container">
                     <img
-                      // ✅ CHANGE: Use the helper to strip 'http://localhost'
+                      // ✅ THE FIX: Use the helper to ensure valid relative path
                       src={getImageUrl(a.images[0])}
                       alt={a.title}
                       className="article-image"
+                      // If an image fails, hide it gracefully
                       onError={(e) => { e.target.style.display = 'none'; }}
                     />
                   </div>
