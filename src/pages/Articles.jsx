@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr"; 
+// ✅ IMPORT HttpTransportType to fix the connection error
+import { HubConnectionBuilder, LogLevel, HttpTransportType } from "@microsoft/signalr"; 
 import { api } from "../axios/api"; // ✅ Points to your configured api.ts
 import '../styles/Articles.css';
 
@@ -71,7 +72,9 @@ const Articles = () => {
     const connection = new HubConnectionBuilder()
       // ✅ Must match your _redirects rule: /hubs/* -> AWS /hubs/notifications
       .withUrl("/hubs/notifications", { 
-          accessTokenFactory: () => sessionStorage.getItem("token") 
+          accessTokenFactory: () => sessionStorage.getItem("token"),
+          // 🚨 CRITICAL FIX: Force Long Polling to bypass Proxy/WebSocket issues
+          transport: HttpTransportType.LongPolling
       })
       .withAutomaticReconnect()
       .configureLogging(LogLevel.Information)
@@ -93,9 +96,17 @@ const Articles = () => {
       setArticles(prev => prev.filter(a => a.id !== articleId));
     });
 
-    connection.start()
-      .then(() => console.log("Connected to SignalR Hub"))
-      .catch(err => console.error("SignalR Connection Error: ", err));
+    // Start Connection with error handling
+    const startConnection = async () => {
+        try {
+            await connection.start();
+            console.log("✅ SignalR Connected via Long Polling");
+        } catch (err) {
+            console.error("❌ SignalR Connection Error:", err);
+        }
+    };
+
+    startConnection();
 
     return () => {
       connection.stop();
@@ -135,7 +146,7 @@ const Articles = () => {
                       alt={a.title}
                       className="article-image"
                       // If an image fails, hide it gracefully
-                      onError={(e) => { e.target.style.display = 'none'; }}
+                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
                     />
                   </div>
                 )}
