@@ -3,9 +3,13 @@ import '../styles/BecomeMember.css';
 import leaf from '../assets/logo1.webp';
 import Swal from 'sweetalert2';
 import { api } from '../axios/api';
-// Using Lucide icons for a cleaner look (standard SVG icons if you don't have the library)
+
+// Simple Arrow Icon
 const ArrowRightIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="5" y1="12" x2="19" y2="12"></line>
+    <polyline points="12 5 19 12 12 19"></polyline>
+  </svg>
 );
 
 const BecomeMember = () => {
@@ -20,8 +24,20 @@ const BecomeMember = () => {
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
-    // Clear error as user types
     if (errors[name]) setErrors(prev => ({ ...prev, [name]: null }));
+  };
+
+  // ✅ HELPER: Calculate Age
+  const getAge = (dobString) => {
+    if (!dobString) return 0;
+    const today = new Date();
+    const birthDate = new Date(dobString);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
   };
 
   const validate = () => {
@@ -29,8 +45,28 @@ const BecomeMember = () => {
     if (!formData.first_name.trim()) newErrors.first_name = 'First name required';
     if (!formData.surname.trim()) newErrors.surname = 'Surname required';
     if (!formData.email.trim()) newErrors.email = 'Email required';
-    if (!formData.dob) newErrors.dob = 'Date of birth required';
-    // ... (Keep your existing validation logic here for age, etc.)
+    
+    // ✅ AGE VALIDATION
+    if (!formData.dob) {
+      newErrors.dob = 'Date of birth required';
+    } else {
+      const age = getAge(formData.dob);
+      if (age < 18) {
+        newErrors.dob = 'You must be 18+ to join.';
+        
+        // Immediate Alert for Underage
+        Swal.fire({
+          icon: 'error',
+          title: 'Age Restriction',
+          text: 'You must be at least 18 years old to become a member.',
+          confirmButtonColor: '#ef4444',
+          // Dark Mode Styling
+          background: '#1f2937', 
+          color: '#ffffff'
+        });
+      }
+    }
+
     if (!formData.agree) newErrors.agree = 'Please agree to terms';
     
     setErrors(newErrors);
@@ -39,7 +75,40 @@ const BecomeMember = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validate()) return;
+    if (!validate()) return; 
+
+    // ✅ CONFIRMATION DIALOG (With Custom Background)
+    const confirmResult = await Swal.fire({
+      title: 'Confirm Your Details',
+      // Added white/light gray text styles for visibility on dark background
+      html: `
+        <div style="text-align: left; font-size: 0.95rem; line-height: 1.6; color: #d1d5db;">
+          <p><strong style="color: #ffffff;">Name:</strong> ${formData.first_name} ${formData.surname}</p>
+          <p><strong style="color: #ffffff;">Email:</strong> ${formData.email}</p>
+          <p><strong style="color: #ffffff;">DOB:</strong> ${formData.dob} (Age: ${getAge(formData.dob)})</p>
+          <hr style="margin: 10px 0; border: 0; border-top: 1px solid #374151;">
+          <p style="font-size: 0.85rem; color: #ef4444;">By confirming, you certify that these details are accurate and you meet the age requirements.</p>
+        </div>
+      `,
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Submit',
+      cancelButtonText: 'Edit',
+      confirmButtonColor: '#10b981',
+      cancelButtonColor: '#6b7280',
+      
+      // ✅ CHANGE BACKGROUND HERE
+      background: '#1f2937',  // Dark Grey (Matches modern dark mode)
+      color: '#ffffff',       // White Text
+      
+      // Optional: Add a subtle border
+      customClass: {
+        popup: 'border border-gray-700'
+      }
+    });
+
+    if (!confirmResult.isConfirmed) return;
+
     setLoading(true);
     try {
       const body = {
@@ -47,17 +116,36 @@ const BecomeMember = () => {
         phoneNumber: formData.phone_number, email: formData.email, address: formData.address,
         city: formData.city, dateOfBirth: formData.dob, agreeToTerms: formData.agree
       };
+      
       await api.post('/Clients/add-client', body);
-      Swal.fire({ icon: "success", title: "Welcome!", text: "You are now a member.", confirmButtonColor: '#10b981' });
+      
+      Swal.fire({ 
+        icon: "success", 
+        title: "Welcome!", 
+        text: "You are now a member.", 
+        confirmButtonColor: '#10b981',
+        background: '#1f2937', 
+        color: '#ffffff'
+      });
+      
       setFormData({ first_name: '', surname: '', gender: '', phone_number: '', email: '', address: '', city: '', dob: '', agree: false });
+    
     } catch (error) {
-      Swal.fire({ icon: "error", title: "Error", text: error.response?.data?.message || "Server Error", confirmButtonColor: '#ef4444' });
+      Swal.fire({ 
+        icon: "error", 
+        title: "Error", 
+        text: error.response?.data?.message || "Server Error", 
+        confirmButtonColor: '#ef4444',
+        background: '#1f2937', 
+        color: '#ffffff'
+      });
     }
     setLoading(false);
   };
 
   return (
     <div className="split-layout">
+      {/* ... (The rest of your JSX remains exactly the same) ... */}
       {/* LEFT SIDE: Brand & Emotion */}
       <div className="brand-panel">
         <div className="brand-content">
@@ -67,8 +155,6 @@ const BecomeMember = () => {
             Experience exclusive benefits, community events, and premium access. 
             Your journey to a greener lifestyle starts here.
           </p>
-          
-          {/* Decorative circles */}
           <div className="circle-deco circle-1"></div>
           <div className="circle-deco circle-2"></div>
         </div>
@@ -83,7 +169,6 @@ const BecomeMember = () => {
           </div>
 
           <form onSubmit={handleSubmit} noValidate>
-            {/* Name Row */}
             <div className="input-row">
               <div className="input-group">
                 <label>First Name</label>
@@ -97,7 +182,6 @@ const BecomeMember = () => {
               </div>
             </div>
 
-            {/* Contact Row */}
             <div className="input-group">
               <label>Email Address</label>
               <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="jane@example.com" className={errors.email ? 'error' : ''} />
@@ -117,13 +201,11 @@ const BecomeMember = () => {
                     <option value="female">Female</option>
                     <option value="male">Male</option>
                     <option value="other">Prefer not to say</option>
-                    
                   </select>
                 </div>
               </div>
             </div>
 
-            {/* Location Row */}
             <div className="input-group">
               <label>Address</label>
               <input type="text" name="address" value={formData.address} onChange={handleChange} placeholder="123 Green Street" />
@@ -141,7 +223,6 @@ const BecomeMember = () => {
               </div>
             </div>
 
-            {/* Terms */}
             <div className="terms-wrapper">
               <label className="custom-checkbox">
                 <input type="checkbox" name="agree" checked={formData.agree} onChange={handleChange} />
@@ -151,7 +232,6 @@ const BecomeMember = () => {
               {errors.agree && <span className="error-msg block">{errors.agree}</span>}
             </div>
 
-            {/* Action */}
             <button type="submit" className="submit-btn" disabled={loading}>
               {loading ? "Processing..." : <>Submit <ArrowRightIcon /></>}
             </button>

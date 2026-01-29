@@ -17,10 +17,16 @@ const Footer = () => (
         rel="noopener noreferrer"
       >
         <i className="fab fa-whatsapp fa-lg"></i>
-         <span className="visually-hidden">WhatsApp</span>
+        <span className="visually-hidden">WhatsApp</span>
       </a>
     </div>
+    
     <p className="mb-0">&copy; {new Date().getFullYear()} The Plug. All rights reserved.</p>
+    
+    {/* Added Credit Line */}
+    <p className="mb-0 mt-2 text-white-50 small">
+      Designed by ShaDo Solutions Pty Ltd
+    </p>
   </footer>
 );
 
