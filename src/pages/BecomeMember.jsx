@@ -116,7 +116,8 @@ const BecomeMember = () => {
                     <option value="" disabled>Select</option>
                     <option value="female">Female</option>
                     <option value="male">Male</option>
-                    <option value="other">Other</option>
+                    <option value="other">Prefer not to say</option>
+                    
                   </select>
                 </div>
               </div>
