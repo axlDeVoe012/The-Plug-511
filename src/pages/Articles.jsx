@@ -82,17 +82,17 @@ const Articles = () => {
 
     // Event Handlers
     connection.on("ArticleCreated", (newArticle) => {
-      console.log("Real-time Create:", newArticle);
+      console.log("Real-time Create:");
       setArticles(prev => [newArticle, ...prev]); 
     });
 
     connection.on("ArticleUpdated", (updatedArticle) => {
-      console.log("Real-time Update:", updatedArticle);
+      console.log("Real-time Update:");
       setArticles(prev => prev.map(a => a.id === updatedArticle.id ? updatedArticle : a));
     });
 
     connection.on("ArticleDeleted", (articleId) => {
-      console.log("Real-time Delete:", articleId);
+      console.log("Real-time Delete:");
       setArticles(prev => prev.filter(a => a.id !== articleId));
     });
 
