@@ -232,15 +232,13 @@ const BecomeMember = () => {
           <label htmlFor="dob" className="form-label">Date of Birth</label>
           <input
             id="dob"
-            type="text"
+            type="date"
             name="dob"
             className="form-control"
             value={formData.dob}
             onChange={handleChange}
-            placeholder="DD/MM/YYYY or select from calendar"
-            onFocus={(e) => e.target.type = 'date'}
-            onBlur={(e) => e.target.type = 'text'}
             max={new Date().toISOString().split('T')[0]}
+            inputMode="none"
           />
           {errors.dob && <p className="text-danger">{errors.dob}</p>}
         </div>
